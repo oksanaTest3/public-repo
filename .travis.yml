@@ -9,8 +9,10 @@ install: skip
 jobs:
   include:
     - name: testing
-      script: true
-
+      script:
+        - echo "Test started"
+        - for i in {1..10}; do echo "still running… minute $i/10"; sleep 60; done
+        - echo "Test finished"
 after_success:
   - echo passed
   - echo $TRAVIS_TEST_RESULT
